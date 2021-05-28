@@ -7,11 +7,10 @@
 - Java 12 and above
 
 ### Steps
-Clone the repository on your local machine
+Clone the repository on your local machine.
 
-Either open the project in your IDE and execute it.
 
-Or you can compile it and run the jar.
+Either you can open the project in your IDE and execute it or you can compile it and run the jar.
 
 Go to the project root folder, run the maven command:
 ```
