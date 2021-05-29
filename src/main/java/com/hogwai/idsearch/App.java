@@ -22,7 +22,7 @@ public class App {
 		long timeElapsed;
 		File directoryPath = null;
 		Properties properties = null;
-		
+
 		try {
 			properties = readPropertiesFile("file.properties");
 		} catch (IOException e) {
@@ -33,12 +33,12 @@ public class App {
 		hashmap = new HashMap<>();
 		File[] files = directoryPath.listFiles();
 		Pattern pattern = Pattern.compile("(?<=id=).*?(?=&|$)");
-		
+
 		start = Instant.now();
 		for (File file : files) {
 			searchIdsInFile(file, pattern);
 		}
-		
+
 		hashmap.entrySet().stream().sorted((k1, k2) -> k1.getValue().compareTo(k2.getValue()))
 				.forEach(k -> System.out.println(k.getKey() + ": " + k.getValue()));
 		// allResults.limit(7).forEach(k -> System.out.println(k.getKey() + ": " + k.getValue()));
@@ -49,6 +49,7 @@ public class App {
 
 	/**
 	 * Search for id values and put them into a map
+	 * 
 	 * @param file
 	 * @param pattern
 	 */
@@ -59,20 +60,21 @@ public class App {
 				Matcher matcher = pattern.matcher(line);
 				if (matcher.find()) {
 					String id = matcher.group();
-		            if (hashmap.containsKey(id)) {
-		            	hashmap.put(id, hashmap.get(id) + 1);
-		            } else {
-		                hashmap.put(id, 1);
-		            }
+					if (hashmap.containsKey(id)) {
+						hashmap.put(id, hashmap.get(id) + 1);
+					} else {
+						hashmap.put(id, 1);
+					}
 				}
 			}
 		} catch (IOException e) {
 			System.err.format("IOException: %s%n", e);
 		}
 	}
-	
+
 	/**
 	 * Read properties file containing the path to the log files directory
+	 * 
 	 * @param fileName
 	 * @return
 	 * @throws IOException

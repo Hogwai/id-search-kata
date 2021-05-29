@@ -39,41 +39,41 @@
 				<plugin>
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>3.0.2</version>
-				    <executions>
-				        <execution>
-				            <id>copy-resource-log</id>
-				            <phase>generate-sources</phase>
-				            <goals>
-				                <goal>copy-resources</goal>
-				            </goals>
-				            <configuration>
-				                <outputDirectory>${basedir}/target/logs</outputDirectory>
-				                <resources>
-				                    <resource>
-				                        <directory>logs</directory>
-				                    </resource>
-				                </resources>
-				            </configuration>
-				        </execution>
-      				    <execution>
-				            <id>copy-resource-properties</id>
-				            <phase>generate-sources</phase>
-				            <goals>
-				                <goal>copy-resources</goal>
-				            </goals>
-				            <configuration>
-				                <outputDirectory>${basedir}/target/</outputDirectory>
-				                <resources>
-				                    <resource>
-				                    	<directory>${basedir}</directory>
-				                        <includes>
-									        <include>file.properties</include>
-									    </includes>
-				                    </resource>
-				                </resources>
-				            </configuration>
-				        </execution>
-				    </executions>
+					<executions>
+						<execution>
+							<id>copy-resource-log</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${basedir}/target/logs</outputDirectory>
+								<resources>
+									<resource>
+										<directory>logs</directory>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+						<execution>
+							<id>copy-resource-properties</id>
+							<phase>generate-sources</phase>
+							<goals>
+								<goal>copy-resources</goal>
+							</goals>
+							<configuration>
+								<outputDirectory>${basedir}/target/</outputDirectory>
+								<resources>
+									<resource>
+										<directory>${basedir}</directory>
+										<includes>
+											<include>file.properties</include>
+										</includes>
+									</resource>
+								</resources>
+							</configuration>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
